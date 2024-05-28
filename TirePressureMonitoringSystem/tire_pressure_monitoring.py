@@ -17,3 +17,4 @@ class Alarm(object):
     @property
     def is_alarm_on(self):
         return self._is_alarm_on
+
