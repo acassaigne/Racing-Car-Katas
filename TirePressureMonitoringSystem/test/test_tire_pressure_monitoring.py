@@ -1,7 +1,7 @@
 import unittest
 
-from sensor import Sensor
 from tire_pressure_monitoring import Alarm
+
 
 class TestableAlarm(Alarm):
 
@@ -11,20 +11,27 @@ class TestableAlarm(Alarm):
 
 
 class SensorStub:
-    pass
+    def __init__(self, value: int) -> None:
+        self._value = value
+
+    def pop_next_pressure_psi_value(self) -> int:
+        return self._value
 
 
 class AlarmTest(unittest.TestCase):
 
-    def test_alarm_is_off_by_default(self):
+    def test__alarm_is_off_by_default(self):
         alarm = Alarm()
-        assert not alarm.is_alarm_on
+        self.assertFalse(alarm.is_alarm_on)
 
-    def test__yyy(self):
-        sensor = SensorStub()
+    def test__alarm_is_off_when_pressure_between_high_and_low_threshold(self):
+        sensor = SensorStub(value=18)
         alarm_test = TestableAlarm(sensor)
         alarm_test.check()
-        assert not alarm_test.is_alarm_on
+        self.assertFalse(alarm_test.is_alarm_on)
 
-
-
+    def test__alarm_is_on_when_pressure_is_lower_than_low_threshold(self):
+        sensor = SensorStub(value=16)
+        alarm_test = TestableAlarm(sensor)
+        alarm_test.check()
+        self.assertTrue(alarm_test.is_alarm_on)
