@@ -1,6 +1,14 @@
 import unittest
 from text_converter import UnicodeFileToHtmlTextConverter
 
+
+class FakeReader:
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        pass
+
 class UnicodeFileToHtmlTextConverterTest(unittest.TestCase):
 
     def test_convert_to_html_with_an_empty_file(self):
@@ -19,9 +27,14 @@ class UnicodeFileToHtmlTextConverterTest(unittest.TestCase):
         self.assertEqual("Hello<br />Bonjour<br />", converted)
 
     def test_convert_to_html_with_a_unexisting_file(self):
-        converter = UnicodeFileToHtmlTextConverter("unexiting_file.txt")
+        converter = UnicodeFileToHtmlTextConverter("unexiting_file.txt", '')
         with self.assertRaises(FileNotFoundError):
             converter.convert_to_html()
+
+    # def test_fake_iter(self):
+    #     iterator = iter(FakeReader())
+    #     with self.assertRaises(StopIteration):
+    #         next(iterator)
 
 
 if __name__ == "__main__":
