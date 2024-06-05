@@ -3,7 +3,7 @@ import html as html_converter
 
 class UnicodeFileToHtmlTextConverter(object):
 
-    def __init__(self, full_filename_with_path):
+    def __init__(self, full_filename_with_path, file_reader = None):
         self.full_filename_with_path = full_filename_with_path
 
     def convert_to_html(self):
