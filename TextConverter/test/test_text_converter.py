@@ -3,10 +3,6 @@ from text_converter import UnicodeFileToHtmlTextConverter
 
 class UnicodeFileToHtmlTextConverterTest(unittest.TestCase):
     
-    def test_filename_from_attribute(self):
-        converter = UnicodeFileToHtmlTextConverter("foo")
-        self.assertEqual("foo", converter.full_filename_with_path)
-
     def test_convert_to_html_with_an_empty_file(self):
         converter = UnicodeFileToHtmlTextConverter("fixture_1.txt")
         converted = converter.convert_to_html()
@@ -23,9 +19,8 @@ class UnicodeFileToHtmlTextConverterTest(unittest.TestCase):
         self.assertEqual("Hello<br />Bonjour<br />", converted)
 
     def test_convert_to_html_with_a_unexisting_file(self):
-        converter = UnicodeFileToHtmlTextConverter("unexiting_file.txt")
         with self.assertRaises(FileNotFoundError):
-            _ = converter.convert_to_html()
+            _ = UnicodeFileToHtmlTextConverter("unexiting_file.txt")
 
 
 if __name__ == "__main__":
