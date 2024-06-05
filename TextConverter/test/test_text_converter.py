@@ -22,9 +22,10 @@ class UnicodeFileToHtmlTextConverterTest(unittest.TestCase):
         converted = converter.convert_to_html()
         self.assertEqual("Hello<br />Bonjour<br />", converted)
 
-
-    #TODO: test unexisting file
-
+    def test_convert_to_html_with_a_unexisting_file(self):
+        converter = UnicodeFileToHtmlTextConverter("unexiting_file.txt")
+        with self.assertRaises(FileNotFoundError):
+            _ = converter.convert_to_html()
 
 
 if __name__ == "__main__":
