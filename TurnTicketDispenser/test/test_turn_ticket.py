@@ -1,6 +1,6 @@
 import unittest
 
-from turn_ticket import TicketDispenser, TurnTicket
+from turn_ticket import TicketDispenser, TurnTicket, TurnNumberSequence
 
 
 class TicketDispenserTest(unittest.TestCase):
@@ -10,10 +10,10 @@ class TicketDispenserTest(unittest.TestCase):
         ticket = dispenser.getTurnTicket()
         self.assertEqual(TurnTicket(0), ticket)
 
-    @unittest.skip("Doesn't work because of static")
     def test_do_somethingAA(self):
-        dispenser1 = TicketDispenser()
-        dispenser2 = TicketDispenser()
+        turn_number_sequence = TurnNumberSequence()
+        dispenser1 = TicketDispenser(turn_number_sequence=turn_number_sequence)
+        dispenser2 = TicketDispenser(turn_number_sequence=turn_number_sequence)
         ticket0 = dispenser1.getTurnTicket()
         ticket1 = dispenser1.getTurnTicket()
         ticket2 = dispenser2.getTurnTicket()
