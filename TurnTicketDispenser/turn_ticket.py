@@ -19,6 +19,11 @@ class TurnNumberSequence(object):
         TurnNumberSequence._turnNumber += 1
         return TurnNumberSequence._turnNumber
 
+    def next_turn_number2(self):
+        TurnNumberSequence._turnNumber += 1
+        return TurnNumberSequence._turnNumber
+
+
 
 class TicketDispenser(object):
     def getTurnTicket(self) -> TurnTicket:
