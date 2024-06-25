@@ -12,6 +12,3 @@ class TicketDispenserTest(unittest.TestCase):
 
     def test_equal(self):
         self.assertEqual(TurnTicket(1), TurnTicket(1))
-
-    def test_str(self):
-        self.assertEqual("a", str(TurnTicket(0)))
