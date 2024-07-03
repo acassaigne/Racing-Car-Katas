@@ -3,8 +3,8 @@ from client import TelemetryClient
 class TelemetryDiagnostics:
     DiagnosticChannelConnectionString = "*111#"
 
-    def __init__(self):
-        self._telemetry_client = TelemetryClient()
+    def __init__(self, telemetry_client= TelemetryClient()):
+        self._telemetry_client = telemetry_client
         self.diagnostic_info = ""
 
     def check_transmission(self):
