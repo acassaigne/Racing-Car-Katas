@@ -7,5 +7,3 @@ class TelemetryDiagnosticControlsTest(unittest.TestCase):
         diagnostics = TelemetryDiagnostics()
         self.assertEqual("foo", diagnostics.diagnostic_info)
         
-if __name__ == "__main__":
-    unittest.main()
