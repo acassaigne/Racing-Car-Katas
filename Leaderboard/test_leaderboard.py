@@ -19,7 +19,7 @@ race6 = Race("Fictional Grand Prix", [driver2, driver1, driver4])
 sample_leaderboard1 = Leaderboard(races=[race1, race2, race3])
 sample_leaderboard2 = Leaderboard(races=[race4, race5, race6])
 
-class LeaderboardTest(unittest.TestCase):
+class LeaderboardTest(unittest.TestCase): 
 
     def test_winner(self):
         self.assertEquals("Lewis Hamilton", sample_leaderboard1.driver_rankings()[0])
