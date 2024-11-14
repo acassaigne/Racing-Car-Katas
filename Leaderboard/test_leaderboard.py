@@ -51,6 +51,15 @@ class LeaderboardTest(unittest.TestCase):
 
         self.assertEquals(18+18+25, sample_leaderboard1.driver_points()["Lewis Hamilton"])
 
+    def test_winner_self_driving_car(self):
+        driver4 = SelfDrivingCar(algorithm_version="1.2", company="Acme")
+
+        race3 = Race("Chinese Grand Prix", [driver4])
+
+        sample_leaderboard1 = Leaderboard(races=[race3])
+
+        self.assertEquals("Self Driving Car - Acme (1.2)", sample_leaderboard1.driver_rankings()[0])
+
 class RaceTest(unittest.TestCase):
 
     def test_driver_points(self):
