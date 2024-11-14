@@ -19,6 +19,11 @@ from leaderboard import *
 # sample_leaderboard1 = Leaderboard(races=[race1, race2, race3])
 # sample_leaderboard2 = Leaderboard(races=[race4, race5, race6])
 
+## TODO: Ensure we are not breaking the behavior with changing the self driving car algorithm
+## TODO: Add tests on race
+## TODO: Add tests on Leadearboard to allow for refacto (test paramétrés ?)
+## TODO: Refacto
+
 class LeaderboardTest(unittest.TestCase):
 
     def test_winner(self):
@@ -59,6 +64,17 @@ class LeaderboardTest(unittest.TestCase):
         sample_leaderboard1 = Leaderboard(races=[race3])
 
         self.assertEquals("Self Driving Car - Acme (1.2)", sample_leaderboard1.driver_rankings()[0])
+
+    def test_AA(self):
+        driver1 = Driver(name="A", country="DE")
+        driver2 = Driver(name="A", country="DE")
+
+        d = {}
+        d[driver1] = driver1.name
+
+        d[driver2] = driver2.name
+
+        self.assertEquals({driver1:"A"}, d)
 
 class RaceTest(unittest.TestCase):
 
