@@ -3,6 +3,7 @@ import unittest
 from leaderboard import Leaderboard, Driver, Race
 
 
+# Axes: more drivers / more races / more races and drivers / driver ranking / change driver type
 class TestCaracterisation(unittest.TestCase):
 
     def test_when_no_races_no_driver_points(self):
