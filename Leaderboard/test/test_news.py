@@ -18,3 +18,11 @@ class TestCaracterisation(unittest.TestCase):
         l = Leaderboard(races=[race1])
 
         self.assertEqual({'Nico Rosberg': 25}, l.driver_points())
+
+    def test_when_winner_of_one_race_gets_25_points_with_a_self_driving_car(self):
+        driver1 = Driver(name="Nico Rosberg", country="DE")
+        race1 = Race("Australian Grand Prix", [driver1])
+
+        l = Leaderboard(races=[race1])
+
+        self.assertEqual({'Nico Rosberg': 25}, l.driver_points())
