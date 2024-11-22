@@ -10,7 +10,7 @@ class TestCaracterisation(unittest.TestCase):
 
         self.assertEqual({}, l.driver_points())
 
-    def test_when_no_races_no_driver_points_AAA(self):
+    def test_when_winner_of_one_race_gets_25_points(self):
         driver1 = Driver(name="Nico Rosberg", country="DE")
         race1 = Race("Australian Grand Prix", [driver1])
 
