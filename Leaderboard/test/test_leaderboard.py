@@ -39,7 +39,7 @@ class LeaderboardTest(unittest.TestCase):
 
         sample_leaderboard1 = Leaderboard(races=[race1, race2, race3])
 
-        self.assertEquals("Lewis Hamilton", sample_leaderboard1.driver_rankings()[0])
+        self.assertEqual("Lewis Hamilton", sample_leaderboard1.driver_rankings()[0])
 
     def test_driver_points(self):
         driver1 = Driver(name="Nico Rosberg", country="DE")
@@ -54,7 +54,7 @@ class LeaderboardTest(unittest.TestCase):
 
         sample_leaderboard1 = Leaderboard(races=[race1, race2, race3])
 
-        self.assertEquals(18+18+25, sample_leaderboard1.driver_points()["Lewis Hamilton"])
+        self.assertEqual(18+18+25, sample_leaderboard1.driver_points()["Lewis Hamilton"])
 
     def test_winner_self_driving_car(self):
         driver4 = SelfDrivingCar(algorithm_version="1.2", company="Acme")
@@ -63,7 +63,7 @@ class LeaderboardTest(unittest.TestCase):
 
         sample_leaderboard1 = Leaderboard(races=[race3])
 
-        self.assertEquals("Self Driving Car - Acme (1.2)", sample_leaderboard1.driver_rankings()[0])
+        self.assertEqual("Self Driving Car - Acme (1.2)", sample_leaderboard1.driver_rankings()[0])
 
 
 
@@ -77,7 +77,7 @@ class LeaderboardTest(unittest.TestCase):
 
         d[driver2] = driver2.name
 
-        self.assertEquals({driver1:"A"}, d)
+        self.assertEqual({driver1:"A"}, d)
 
 class RaceTest(unittest.TestCase):
 
@@ -90,9 +90,9 @@ class RaceTest(unittest.TestCase):
         race1 = Race("Australian Grand Prix", [driver1, driver2, driver3])
         driver4.algorithm_version = "1.3"
 
-        self.assertEquals(25, race1.points(driver1))
-        self.assertEquals(18, race1.points(driver2))
-        self.assertEquals(15, race1.points(driver3))
+        self.assertEqual(25, race1.points(driver1))
+        self.assertEqual(18, race1.points(driver2))
+        self.assertEqual(15, race1.points(driver3))
 
 if __name__ == "__main__":
     unittest.main()
