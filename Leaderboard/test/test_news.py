@@ -14,7 +14,7 @@ class TestCaracterisation(unittest.TestCase):
 
     def test_when_winner_of_one_race_gets_25_points(self):
         driver1 = Driver(name="Nico Rosberg", country="DE")
-        race1 = Race("Australian Grand Prix", [driver1])
+        race1 = Race([driver1])
 
         l = Leaderboard(races=[race1])
 
@@ -26,7 +26,7 @@ class TestCaracterisation(unittest.TestCase):
         driver2 = Driver(name="Driver 2", country="DE")
         driver3 = Driver(name="Driver 3", country="DE")
 
-        race1 = Race("Australian Grand Prix", [driver1, driver2, driver3])
+        race1 = Race([driver1, driver2, driver3])
 
         l = Leaderboard(races=[race1])
 
@@ -41,8 +41,8 @@ class TestCaracterisation(unittest.TestCase):
         driver3 = Driver(name="Driver 3", country="DE")
         driver4 = Driver(name="Driver 4", country="DE")
 
-        race1 = Race("Australian Grand Prix", [driver1, driver2, driver3])
-        race2 = Race("Monte Carlo", [driver4, driver3, driver1])
+        race1 = Race([driver1, driver2, driver3])
+        race2 = Race([driver4, driver3, driver1])
 
         l = Leaderboard(races=[race1, race2])
 
@@ -57,7 +57,7 @@ class TestCaracterisation(unittest.TestCase):
         driver2 = Driver(name="Driver 2", country="DE")
         driver3 = Driver(name="Driver 3", country="DE")
 
-        race1 = Race("Australian Grand Prix", [driver1, driver2, driver3])
+        race1 = Race([driver1, driver2, driver3])
 
         l = Leaderboard(races=[race1])
 
@@ -69,8 +69,8 @@ class TestCaracterisation(unittest.TestCase):
         driver3 = Driver(name="Driver 3", country="DE")
         driver4 = Driver(name="Driver 4", country="DE")
 
-        race1 = Race("Australian Grand Prix", [driver1, driver2, driver3])
-        race2 = Race("Monte Carlo", [driver4, driver3, driver1])
+        race1 = Race([driver1, driver2, driver3])
+        race2 = Race([driver4, driver3, driver1])
 
         l = Leaderboard(races=[race1, race2])
 
@@ -79,7 +79,7 @@ class TestCaracterisation(unittest.TestCase):
 
     def test_self_driving_car_name_is_display_whit_prefix_company_name_and_version(self):
         driver1 = SelfDrivingCar(algorithm_version="1.2",company="acme")
-        race1 = Race("Australian Grand Prix", [driver1])
+        race1 = Race([driver1])
 
         l = Leaderboard(races=[race1])
 

@@ -41,8 +41,7 @@ class Race(object):
 
     _points = [25, 18, 15]
 
-    def __init__(self, name, results):
-        self.name = name
+    def __init__(self, results):
         self.results = results
         self.driver_names = {}
         for driver in results:
