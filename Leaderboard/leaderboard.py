@@ -9,9 +9,7 @@ class Leaderboard(object):
     def driver_points(self):
         driver_points = defaultdict(int)
         for race in self.races:
-            for driver in race.results:
-                name = driver.name2()
-                driver_points[name] += race.points(driver)
+            race.score_race(driver_points)
         return driver_points
 
     def driver_rankings(self):
@@ -46,3 +44,9 @@ class Race(object):
 
     def points(self, driver):
         return Race._points[self.results.index(driver)]
+
+    def score_race(self, driver_points):
+        for driver in self.results:
+            name = driver.name2()
+            driver_points[name] += self.points(driver)
+
