@@ -7,8 +7,6 @@ from leaderboard import Leaderboard, Driver, Race, SelfDrivingCar
 # Axes: more drivers / more races / more races and drivers / driver ranking / change driver type
 class TestCaracterisation(unittest.TestCase):
 
-
-
     def test_when_no_races_no_driver_points(self):
         l = Leaderboard(races=[])
 
@@ -21,6 +19,38 @@ class TestCaracterisation(unittest.TestCase):
         l = Leaderboard(races=[race1])
 
         self.assertEqual({'Nico Rosberg': 25}, l.driver_points())
+
+
+    def test_displays_podium_for_one_race(self):
+        driver1 = Driver(name="Driver 1", country="DE")
+        driver2 = Driver(name="Driver 2", country="DE")
+        driver3 = Driver(name="Driver 3", country="DE")
+
+        race1 = Race("Australian Grand Prix", [driver1, driver2, driver3])
+
+        l = Leaderboard(races=[race1])
+
+        self.assertEqual({'Driver 1': 25,
+                          'Driver 2': 18,
+                          'Driver 3': 15}, l.driver_points())
+
+
+    def test_displays_podium_for_multiples_races(self):
+        driver1 = Driver(name="Driver 1", country="DE")
+        driver2 = Driver(name="Driver 2", country="DE")
+        driver3 = Driver(name="Driver 3", country="DE")
+        driver4 = Driver(name="Driver 4", country="DE")
+
+        race1 = Race("Australian Grand Prix", [driver1, driver2, driver3])
+        race2 = Race("Monte Carlo", [driver4, driver3, driver1])
+
+        l = Leaderboard(races=[race1, race2])
+
+        self.assertEqual({'Driver 1': 40,
+                          'Driver 2': 18,
+                          'Driver 3': 33,
+                          'Driver 4': 25,
+                          }, l.driver_points())
 
     def test_self_driving_car_name_is_display_whit_prefix_company_name_and_version(self):
         driver1 = SelfDrivingCar(algorithm_version="1.2",company="acme")

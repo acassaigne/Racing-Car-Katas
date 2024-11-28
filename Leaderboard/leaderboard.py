@@ -28,7 +28,9 @@ class SelfDrivingCar(Driver):
     def __init__(self, algorithm_version, company):
         Driver.__init__(self, None, company)
         self.algorithm_version = algorithm_version
-        
+
+# Is it actually Podium?
+# When we instanciate a Race with more than 3 drivers, the points method fails
 class Race(object):
 
     _points = [25, 18, 15]
