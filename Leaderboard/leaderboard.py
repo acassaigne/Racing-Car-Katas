@@ -24,10 +24,16 @@ class Driver(object):
         self.name = name
         self.country = country
 
+    def name2(self):
+        return self.name
+
 class SelfDrivingCar(Driver):
     def __init__(self, algorithm_version, company):
         Driver.__init__(self, None, company)
         self.algorithm_version = algorithm_version
+
+    def name2(self):
+        return "Self Driving Car - {} ({})".format(self.country, self.algorithm_version)
 
 # Is it actually Podium?
 # When we instanciate a Race with more than 3 drivers, the points method fails
@@ -40,9 +46,7 @@ class Race(object):
         self.results = results
         self.driver_names = {}
         for driver in results:
-            name = driver.name
-            if isinstance(driver, SelfDrivingCar):
-                name = "Self Driving Car - {} ({})".format(driver.country, driver.algorithm_version)
+            name = driver.name2()
             self.driver_names[driver] = name
 
     def points(self, driver):
