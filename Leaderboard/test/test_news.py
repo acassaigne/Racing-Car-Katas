@@ -4,13 +4,6 @@ import pytest
 
 from leaderboard import Leaderboard, Driver, Race, SelfDrivingCar
 
-
-@pytest.mark.parametrize("a,b", [("hello", "salut"),
-                                 ("foo", "bar")])
-def test_u(a, b):
-    assert a == b
-
-
 # Axes: more drivers / more races / more races and drivers / driver ranking / change driver type
 class TestCaracterisation(unittest.TestCase):
 
