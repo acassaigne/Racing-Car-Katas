@@ -19,24 +19,24 @@ class Leaderboard(object):
 
 class Driver(ABC):
     @abstractmethod
-    def name2(self):
+    def name(self):
         pass
 
 class HumanDriver(Driver):
     def __init__(self, name, country):
         self._name = name
-        self.country = country
+        self._country = country
 
-    def name2(self):
+    def name(self):
         return self._name
 
 class SelfDrivingCar(Driver):
     def __init__(self, algorithm_version, company):
-        self.algorithm_version = algorithm_version
-        self.company = company
+        self._algorithm_version = algorithm_version
+        self._company = company
 
-    def name2(self):
-        return "Self Driving Car - {} ({})".format(self.company, self.algorithm_version)
+    def name(self):
+        return "Self Driving Car - {} ({})".format(self._company, self._algorithm_version)
 
 # Is it actually Podium?
 # When we instanciate a Race with more than 3 drivers, the points method fails
@@ -52,6 +52,6 @@ class Race(object):
 
     def scores(self, driver_points):
         for driver in self.results:
-            name = driver.name2()
+            name = driver.name()
             driver_points[name] += self.points(driver)
 

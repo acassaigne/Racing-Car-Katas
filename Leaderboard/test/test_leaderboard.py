@@ -35,7 +35,7 @@ class LeaderboardTest(unittest.TestCase):
         race1 = Race([driver1, driver2, driver3])
         race2 = Race([driver3, driver2, driver1])
         race3 = Race([driver2, driver1, driver3])
-        driver4.algorithm_version = "1.3"
+        driver4._algorithm_version = "1.3"
 
         sample_leaderboard1 = Leaderboard(races=[race1, race2, race3])
 
@@ -50,7 +50,7 @@ class LeaderboardTest(unittest.TestCase):
         race1 = Race([driver1, driver2, driver3])
         race2 = Race([driver3, driver2, driver1])
         race3 = Race([driver2, driver1, driver3])
-        driver4.algorithm_version = "1.3"
+        driver4._algorithm_version = "1.3"
 
         sample_leaderboard1 = Leaderboard(races=[race1, race2, race3])
 
@@ -75,7 +75,7 @@ class RaceTest(unittest.TestCase):
         driver4 = SelfDrivingCar(algorithm_version="1.2", company="Acme")
 
         race1 = Race([driver1, driver2, driver3])
-        driver4.algorithm_version = "1.3"
+        driver4._algorithm_version = "1.3"
 
         self.assertEqual(25, race1.points(driver1))
         self.assertEqual(18, race1.points(driver2))
