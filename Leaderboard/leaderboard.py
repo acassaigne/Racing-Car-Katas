@@ -32,11 +32,11 @@ class HumanDriver(Driver):
 
 class SelfDrivingCar(Driver):
     def __init__(self, algorithm_version, company):
-        HumanDriver.__init__(self, None, company)
         self.algorithm_version = algorithm_version
+        self.company = company
 
     def name2(self):
-        return "Self Driving Car - {} ({})".format(self.country, self.algorithm_version)
+        return "Self Driving Car - {} ({})".format(self.company, self.algorithm_version)
 
 # Is it actually Podium?
 # When we instanciate a Race with more than 3 drivers, the points method fails
