@@ -2,6 +2,7 @@ import unittest
 
 from leaderboard import *
 
+
 # # Test Data found via http://en.wikipedia.org/wiki/2015_Formula_One_season
 # driver1 = Driver(name="Nico Rosberg", country="DE")
 # driver2 = Driver(name="Lewis Hamilton", country="UK")
@@ -54,7 +55,7 @@ class LeaderboardTest(unittest.TestCase):
 
         sample_leaderboard1 = Leaderboard(races=[race1, race2, race3])
 
-        self.assertEqual(18+18+25, sample_leaderboard1.driver_points()["Lewis Hamilton"])
+        self.assertEqual(18 + 18 + 25, sample_leaderboard1.driver_points()["Lewis Hamilton"])
 
     def test_winner_self_driving_car(self):
         driver4 = SelfDrivingCar(algorithm_version="1.2", company="Acme")
@@ -80,6 +81,25 @@ class RaceTest(unittest.TestCase):
         self.assertEqual(25, race1.points(driver1))
         self.assertEqual(18, race1.points(driver2))
         self.assertEqual(15, race1.points(driver3))
+
+    def test_u(self):
+        t = [1, 2]
+        points = [10, 20]
+        r = []
+        for i, p in zip(t, points):
+            r.append(i + p)
+
+        self.assertEqual([11, 22], r)
+
+
+
+    def test_u_list_comprehension(self):
+        t = [1, 2]
+        points = [10, 20]
+        r = [i + p for i, p in zip(t, points)]
+
+        self.assertEqual([11, 22], r)
+
 
 if __name__ == "__main__":
     unittest.main()

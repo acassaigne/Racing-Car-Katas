@@ -46,12 +46,14 @@ class Race(object):
 
     def __init__(self, results):
         self.results = results
+        self.driver_points = defaultdict(int)
+        for idx, driver in enumerate(self.results):
+            self.driver_points[driver] = Race._points[idx]
+
 
     def points(self, driver: Driver):
-        return Race._points[self.results.index(driver)]
+        return self.driver_points[driver]
 
     def scores(self, driver_points):
         for driver in self.results:
-            name = driver.name()
-            driver_points[name] += self.points(driver)
-
+            driver_points[driver.name()] += self.points(driver)
