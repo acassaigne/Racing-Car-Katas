@@ -47,7 +47,7 @@ class Race(object):
     def __init__(self, results):
         self.results = results
 
-    def points(self, driver):
+    def points(self, driver: Driver):
         return Race._points[self.results.index(driver)]
 
     def scores(self, driver_points):
