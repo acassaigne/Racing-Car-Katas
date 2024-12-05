@@ -17,7 +17,7 @@ class Leaderboard(object):
         return [name for (name, points) in rankings]
 
 
-class Driver(object):
+class HumanDriver(object):
     def __init__(self, name, country):
         self.name = name
         self.country = country
@@ -25,9 +25,9 @@ class Driver(object):
     def name2(self):
         return self.name
 
-class SelfDrivingCar(Driver):
+class SelfDrivingCar(HumanDriver):
     def __init__(self, algorithm_version, company):
-        Driver.__init__(self, None, company)
+        HumanDriver.__init__(self, None, company)
         self.algorithm_version = algorithm_version
 
     def name2(self):

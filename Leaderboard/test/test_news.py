@@ -1,8 +1,6 @@
 import unittest
 
-import pytest
-
-from leaderboard import Leaderboard, Driver, Race, SelfDrivingCar
+from leaderboard import Leaderboard, HumanDriver, Race, SelfDrivingCar
 
 # Axes: more drivers / more races / more races and drivers / driver ranking / change driver type
 class TestCaracterisation(unittest.TestCase):
@@ -13,7 +11,7 @@ class TestCaracterisation(unittest.TestCase):
         self.assertEqual({}, l.driver_points())
 
     def test_when_winner_of_one_race_gets_25_points(self):
-        driver1 = Driver(name="Nico Rosberg", country="DE")
+        driver1 = HumanDriver(name="Nico Rosberg", country="DE")
         race1 = Race([driver1])
 
         l = Leaderboard(races=[race1])
@@ -22,9 +20,9 @@ class TestCaracterisation(unittest.TestCase):
 
 
     def test_displays_driver_points_for_one_race(self):
-        driver1 = Driver(name="Driver 1", country="DE")
-        driver2 = Driver(name="Driver 2", country="DE")
-        driver3 = Driver(name="Driver 3", country="DE")
+        driver1 = HumanDriver(name="Driver 1", country="DE")
+        driver2 = HumanDriver(name="Driver 2", country="DE")
+        driver3 = HumanDriver(name="Driver 3", country="DE")
 
         race1 = Race([driver1, driver2, driver3])
 
@@ -36,10 +34,10 @@ class TestCaracterisation(unittest.TestCase):
 
 
     def test_displays_driver_points_for_multiples_races(self):
-        driver1 = Driver(name="Driver 1", country="DE")
-        driver2 = Driver(name="Driver 2", country="DE")
-        driver3 = Driver(name="Driver 3", country="DE")
-        driver4 = Driver(name="Driver 4", country="DE")
+        driver1 = HumanDriver(name="Driver 1", country="DE")
+        driver2 = HumanDriver(name="Driver 2", country="DE")
+        driver3 = HumanDriver(name="Driver 3", country="DE")
+        driver4 = HumanDriver(name="Driver 4", country="DE")
 
         race1 = Race([driver1, driver2, driver3])
         race2 = Race([driver4, driver3, driver1])
@@ -53,9 +51,9 @@ class TestCaracterisation(unittest.TestCase):
                           }, l.driver_points())
 
     def test_displays_driver_rankings_for_one_race(self):
-        driver1 = Driver(name="Driver 1", country="DE")
-        driver2 = Driver(name="Driver 2", country="DE")
-        driver3 = Driver(name="Driver 3", country="DE")
+        driver1 = HumanDriver(name="Driver 1", country="DE")
+        driver2 = HumanDriver(name="Driver 2", country="DE")
+        driver3 = HumanDriver(name="Driver 3", country="DE")
 
         race1 = Race([driver1, driver2, driver3])
 
@@ -64,10 +62,10 @@ class TestCaracterisation(unittest.TestCase):
         self.assertEqual(['Driver 1', 'Driver 2', 'Driver 3'], l.driver_rankings())
 
     def test_displays_driver_rankings_for_multiples_races(self):
-        driver1 = Driver(name="Driver 1", country="DE")
-        driver2 = Driver(name="Driver 2", country="DE")
-        driver3 = Driver(name="Driver 3", country="DE")
-        driver4 = Driver(name="Driver 4", country="DE")
+        driver1 = HumanDriver(name="Driver 1", country="DE")
+        driver2 = HumanDriver(name="Driver 2", country="DE")
+        driver3 = HumanDriver(name="Driver 3", country="DE")
+        driver4 = HumanDriver(name="Driver 4", country="DE")
 
         race1 = Race([driver1, driver2, driver3])
         race2 = Race([driver4, driver3, driver1])

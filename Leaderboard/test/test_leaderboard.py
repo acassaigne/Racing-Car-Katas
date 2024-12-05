@@ -27,9 +27,9 @@ from leaderboard import *
 class LeaderboardTest(unittest.TestCase):
 
     def test_winner(self):
-        driver1 = Driver(name="Nico Rosberg", country="DE")
-        driver2 = Driver(name="Lewis Hamilton", country="UK")
-        driver3 = Driver(name="Sebastian Vettel", country="DE")
+        driver1 = HumanDriver(name="Nico Rosberg", country="DE")
+        driver2 = HumanDriver(name="Lewis Hamilton", country="UK")
+        driver3 = HumanDriver(name="Sebastian Vettel", country="DE")
         driver4 = SelfDrivingCar(algorithm_version="1.2", company="Acme")
 
         race1 = Race([driver1, driver2, driver3])
@@ -42,9 +42,9 @@ class LeaderboardTest(unittest.TestCase):
         self.assertEqual("Lewis Hamilton", sample_leaderboard1.driver_rankings()[0])
 
     def test_driver_points(self):
-        driver1 = Driver(name="Nico Rosberg", country="DE")
-        driver2 = Driver(name="Lewis Hamilton", country="UK")
-        driver3 = Driver(name="Sebastian Vettel", country="DE")
+        driver1 = HumanDriver(name="Nico Rosberg", country="DE")
+        driver2 = HumanDriver(name="Lewis Hamilton", country="UK")
+        driver3 = HumanDriver(name="Sebastian Vettel", country="DE")
         driver4 = SelfDrivingCar(algorithm_version="1.2", company="Acme")
 
         race1 = Race([driver1, driver2, driver3])
@@ -69,8 +69,8 @@ class LeaderboardTest(unittest.TestCase):
 
     @unittest.skip("will be back, maybe")
     def test_AA(self):
-        driver1 = Driver(name="A", country="DE")
-        driver2 = Driver(name="A", country="DE")
+        driver1 = HumanDriver(name="A", country="DE")
+        driver2 = HumanDriver(name="A", country="DE")
 
         d = {}
         d[driver1] = driver1.name
@@ -82,9 +82,9 @@ class LeaderboardTest(unittest.TestCase):
 class RaceTest(unittest.TestCase):
 
     def test_driver_points(self):
-        driver1 = Driver(name="Nico Rosberg", country="DE")
-        driver2 = Driver(name="Lewis Hamilton", country="UK")
-        driver3 = Driver(name="Sebastian Vettel", country="DE")
+        driver1 = HumanDriver(name="Nico Rosberg", country="DE")
+        driver2 = HumanDriver(name="Lewis Hamilton", country="UK")
+        driver3 = HumanDriver(name="Sebastian Vettel", country="DE")
         driver4 = SelfDrivingCar(algorithm_version="1.2", company="Acme")
 
         race1 = Race([driver1, driver2, driver3])
