@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
 from collections import defaultdict
 
-
+# re-intégrer la responsabilité d'accumuler les points pour chaque driver pour l'ensemble des courses
+# ajouter une méthode (par exemple) ...
 class Leaderboard(object):
     
     def __init__(self, races):
