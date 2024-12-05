@@ -24,11 +24,11 @@ class Driver(ABC):
 
 class HumanDriver(Driver):
     def __init__(self, name, country):
-        self.name = name
+        self._name = name
         self.country = country
 
     def name2(self):
-        return self.name
+        return self._name
 
 class SelfDrivingCar(Driver):
     def __init__(self, algorithm_version, company):

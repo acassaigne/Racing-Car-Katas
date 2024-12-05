@@ -66,19 +66,6 @@ class LeaderboardTest(unittest.TestCase):
         self.assertEqual("Self Driving Car - Acme (1.2)", sample_leaderboard1.driver_rankings()[0])
 
 
-
-    @unittest.skip("will be back, maybe")
-    def test_AA(self):
-        driver1 = HumanDriver(name="A", country="DE")
-        driver2 = HumanDriver(name="A", country="DE")
-
-        d = {}
-        d[driver1] = driver1.name
-
-        d[driver2] = driver2.name
-
-        self.assertEqual({driver1:"A"}, d)
-
 class RaceTest(unittest.TestCase):
 
     def test_driver_points(self):
