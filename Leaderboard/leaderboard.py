@@ -1,3 +1,4 @@
+from abc import ABC
 from collections import defaultdict
 
 
@@ -16,8 +17,11 @@ class Leaderboard(object):
         rankings = sorted(self.driver_points().items(), key=lambda x: x[1], reverse=True)
         return [name for (name, points) in rankings]
 
+class Driver(ABC):
+    def name2(self):
+        pass
 
-class HumanDriver(object):
+class HumanDriver(Driver):
     def __init__(self, name, country):
         self.name = name
         self.country = country
