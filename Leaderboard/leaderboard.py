@@ -1,4 +1,4 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 from collections import defaultdict
 
 
@@ -18,6 +18,7 @@ class Leaderboard(object):
         return [name for (name, points) in rankings]
 
 class Driver(ABC):
+    @abstractmethod
     def name2(self):
         pass
 
@@ -29,7 +30,7 @@ class HumanDriver(Driver):
     def name2(self):
         return self.name
 
-class SelfDrivingCar(HumanDriver):
+class SelfDrivingCar(Driver):
     def __init__(self, algorithm_version, company):
         HumanDriver.__init__(self, None, company)
         self.algorithm_version = algorithm_version
