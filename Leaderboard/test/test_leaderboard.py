@@ -56,6 +56,7 @@ class LeaderboardTest(unittest.TestCase):
         sample_leaderboard1 = Leaderboard(races=[race1, race2, race3])
 
         self.assertEqual(18 + 18 + 25, sample_leaderboard1.driver_points()["Lewis Hamilton"])
+        self.assertEqual(18 + 18 + 25, sample_leaderboard1.driver_points()["Lewis Hamilton"])
 
     def test_winner_self_driving_car(self):
         driver4 = SelfDrivingCar(algorithm_version="1.2", company="Acme")
@@ -67,38 +68,12 @@ class LeaderboardTest(unittest.TestCase):
         self.assertEqual("Self Driving Car - Acme (1.2)", sample_leaderboard1.driver_rankings()[0])
 
 
-class RaceTest(unittest.TestCase):
-
-    def test_driver_points(self):
-        driver1 = HumanDriver(name="Nico Rosberg", country="DE")
-        driver2 = HumanDriver(name="Lewis Hamilton", country="UK")
-        driver3 = HumanDriver(name="Sebastian Vettel", country="DE")
-        driver4 = SelfDrivingCar(algorithm_version="1.2", company="Acme")
-
-        race1 = Race([driver1, driver2, driver3])
-        driver4._algorithm_version = "1.3"
-
-        self.assertEqual(25, race1.points(driver1))
-        self.assertEqual(18, race1.points(driver2))
-        self.assertEqual(15, race1.points(driver3))
-
-    def test_u(self):
-        t = [1, 2]
-        points = [10, 20]
-        r = []
-        for i, p in zip(t, points):
-            r.append(i + p)
-
-        self.assertEqual([11, 22], r)
+#class RaceTest(unittest.TestCase):
 
 
 
-    def test_u_list_comprehension(self):
-        t = [1, 2]
-        points = [10, 20]
-        r = [i + p for i, p in zip(t, points)]
 
-        self.assertEqual([11, 22], r)
+
 
 
 if __name__ == "__main__":

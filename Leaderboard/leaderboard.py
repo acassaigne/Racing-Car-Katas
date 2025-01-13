@@ -7,12 +7,17 @@ class Leaderboard(object):
     
     def __init__(self, races):
         self.races = races
+        self._driver_points = defaultdict(int)
+        for race in self.races:
+            race.race_add_scores(self)
+
 
     def driver_points(self):
-        driver_points = defaultdict(int)
-        for race in self.races:
-            race.scores(driver_points)
-        return driver_points
+        return self._driver_points
+
+    def add_points_to(self, driver, points):
+        self._driver_points[driver.name()] += points
+
 
     def driver_rankings(self):
         rankings = sorted(self.driver_points().items(), key=lambda x: x[1], reverse=True)
@@ -43,18 +48,18 @@ class SelfDrivingCar(Driver):
 # When we instanciate a Race with more than 3 drivers, the points method fails
 class Race(object):
 
-    _points = [25, 18, 15]
+    _reference_score = [25, 18, 15]
 
     def __init__(self, results):
         self.results = results
         self.driver_points = defaultdict(int)
         for idx, driver in enumerate(self.results):
-            self.driver_points[driver] = Race._points[idx]
+            self.driver_points[driver] = Race._reference_score[idx]
 
 
-    def points(self, driver: Driver):
+    def _points(self, driver: Driver):
         return self.driver_points[driver]
 
-    def scores(self, driver_points):
+    def race_add_scores(self, leaderboard: Leaderboard):
         for driver in self.results:
-            driver_points[driver.name()] += self.points(driver)
+            leaderboard.add_points_to(driver=driver, points=self._points(driver) )
