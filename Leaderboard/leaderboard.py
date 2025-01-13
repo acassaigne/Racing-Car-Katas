@@ -1,8 +1,6 @@
 from abc import ABC, abstractmethod
 from collections import defaultdict
 
-# re-intégrer la responsabilité d'accumuler les points pour chaque driver pour l'ensemble des courses
-# ajouter une méthode (par exemple) ...
 class Leaderboard(object):
     
     def __init__(self, races):
@@ -44,8 +42,6 @@ class SelfDrivingCar(Driver):
     def name(self):
         return "Self Driving Car - {} ({})".format(self._company, self._algorithm_version)
 
-# Is it actually Podium?
-# When we instanciate a Race with more than 3 drivers, the points method fails
 class Race(object):
 
     _reference_score = [25, 18, 15]
